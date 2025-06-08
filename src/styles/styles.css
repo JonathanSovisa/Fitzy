@@ -492,6 +492,11 @@ header {
   background-color: #ff6dae;
 }
 
+.form-group {
+  gap: 2px;
+  flex: 0.1;
+}
+
 
 /* LODIANG */
 .loading-screen {
