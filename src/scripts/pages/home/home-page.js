@@ -57,23 +57,48 @@ export default class HomePage {
         </div>
     </section>
 
-    <section id="personalization" class="personalization-section">
-        <h2>PERSONALIZATION</h2>
-       <form class="personalization-form" id="personalizationForm">
-          <div class="form-row">
-            <input type="text" name="name" placeholder="Nama" />
-            <input type="number" name="age" placeholder="Age" />
-            <input type="number" name="weight" placeholder="Weight" />
-            <input type="number" name="height" placeholder="Height" />
-          </div>
-          <div class="form-row">
-            <input type="number" name="sitUpCounts" placeholder="Sit Up Counts" />
-            <input type="number" name="broadJump" placeholder="Broad Jumps" />
-          </div>
-          <button type="submit">Mulai Test</button>
-        </form>
+<section id="personalization" class="personalization-section">
+  <h2>PERSONALIZATION</h2>
+  <form class="personalization-form" id="personalizationForm">
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label for="name">Nama</label>
+        <input type="text" id="name" name="name" placeholder="Nama" />
+      </div>
 
-    </section>
+      <div class="form-group">
+        <label for="age">Umur</label>
+        <input type="number" id="age" name="age" placeholder="Age" />
+      </div>
+
+      <div class="form-group">
+        <label for="weight">Berat Badan (kg)</label>
+        <input type="number" id="weight" name="weight" placeholder="Weight" />
+      </div>
+
+      <div class="form-group">
+        <label for="height">Tinggi Badan (cm)</label>
+        <input type="number" id="height" name="height" placeholder="Height" />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="sitUpCounts">Jumlah Sit Up</label>
+        <input type="number" id="sitUpCounts" name="sitUpCounts" placeholder="Sit Up Counts" />
+      </div>
+
+      <div class="form-group">
+        <label for="broadJump">Jarak Broad Jump (cm)</label>
+        <input type="number" id="broadJump" name="broadJump" placeholder="Broad Jumps" />
+      </div>
+    </div>
+
+    <button type="submit">Mulai Test</button>
+  </form>
+</section>
+
 
 
  <!-- 👇 Ini bagian loading screen -->
