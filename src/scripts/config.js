@@ -1,5 +1,5 @@
 const CONFIG = {
-  BASE_URL: 'http://localhost:5432',
+  BASE_URL: 'https://fitness-prediction-api-env.up.railway.app/',
 };
 
 export default CONFIG;
