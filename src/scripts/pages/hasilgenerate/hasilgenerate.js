@@ -5,7 +5,7 @@ export default class hasilGenerate {
     return `
       <section class="result-section">
         <div class="notebook-wrapper">
-          <img src="./images/notebook-bg.png" alt="Notebook Background" class="notebook-img" />
+         
 
           <div class="notebook-content">
             <h1><span class="bold">HASIL</span> <span class="pink">ANALISIS</span></h1>
