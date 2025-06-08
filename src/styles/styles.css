@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,24 +9,31 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fdfcfe;
+  line-height: 1.6;
 }
 
+
 .container {
-  padding-inline: 20px;
+  padding-inline: 15px;
   margin-inline: auto;
   max-width: 2000px;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
 
 /* BAGIAN HEADER */
 header {
-  background-color: #E3D9EC; 
-  padding: 5px 0;
+  background-color: #E3D9EC;
+  padding: 8px 0;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
-
   position: fixed;
   top: 0;
   left: 0;
@@ -36,90 +47,98 @@ header {
   align-items: center;
 }
 
-.brand .logo {
-  width: 40px;
-  height: 40px;
-}
-
-.logo-fitzy {
-  width: 150px;
-  height: 150px;
+.brand .logo-fitzy {
+  width: 100px;
+  height: auto;
   object-fit: contain;
-  margin-right: 12px;
+  margin-right: 10px;
 }
 
-.navigation-drawer {
-  min-height: 100vh;
-  width: 947px;
-  padding: 40px 30px 20px;
-  background-color: #b5b5b5;
 
+/* NAVIGATION DRAWER (MOBILE MENU) - PENYESUAIAN BARU */
+.navigation-drawer {
+  height: 100vh;
+  width: 100%;
+  padding: 20px;
+  padding-top: 40px;
+  background-color: #E3D9EC;
   position: fixed;
   top: 0;
   left: 0;
-
-  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 0 10px rgba(0,0,0,0.3);
   transform: translateX(-100%);
-  transition: transform 550ms ease-in-out;
-
+  transition: transform 0.3s ease-in-out;
   z-index: 9999;
 
-  font-size: 1.1rem;
-  line-height: 1.6;
-  font-weight: 800;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   overflow-y: auto;
 }
 
-/* Tambahan untuk header drawer */
-.drawer-header {
-  padding-bottom: 15px;
-  margin-bottom: 20px;
-  font-size: 1.5rem;
-  font-weight: 900;
-  border-bottom: 2px solid #888;
+.navigation-drawer.open {
+  transform: translateX(0%);
 }
 
-.navigation-drawer.open {
-  transform: translateX(0);
+
+
+/* BARU: Gaya untuk header di dalam drawer (logo) */
+.drawer-header {
+  margin-bottom: 50px;
+  text-align: center;
+}
+.drawer-logo-fitzy {
+  width: 120px;
+  height: auto;
 }
 
 .drawer-button {
   padding: 8px;
   border: 0;
   border-radius: 4px;
-
   display: inline-block;
   background-color: transparent;
-
   font-weight: bold;
   font-size: 28px;
-  color: #141e16;
-
+  color: #333;
   cursor: pointer;
+  z-index: 10000;
+  position: relative;
 }
 
 .nav-list {
   list-style: none;
   display: flex;
-  gap: 80px;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-top: 0;
+  width: 100%;
+}
+
+.nav-list li {
+  width: 85%;
+  max-width: 320px;
+  text-align: center;
 }
 
 .nav-list li a {
   text-decoration: none;
-  color: #2c2c2c;
-  font-weight: bold;
-  font-size: 1.7rem;
+  color: #000000;
+  font-weight: 500;
+  font-size: 1.25rem;
   font-family: 'Poppins', sans-serif;
+  display: block;
+  padding: 16px 10px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
-.drawer-button {
-  display: none;
-  font-size: 28px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #333;
+.nav-list li a:hover,
+.nav-list li a:focus {
+  background-color: #ff4fa1;
+  color: #181818;
 }
 
 
@@ -128,71 +147,73 @@ header {
   background-color: #E3D9EC;
   color: #3e2b4a;
   text-align: center;
-  padding: 50px 0;
+  padding: 30px 20px;
   font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
 }
 
 
 
-/* MAIN */
+/* MAIN CONTENT */
 .main-content {
-  padding-top: 100px;
-   background-color: #FAF8FF; 
+  padding-top: 70px;
 }
 
 
+/* HERO SECTION */
 .hero {
   position: relative;
   overflow: hidden;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 110px 200px;
+  text-align: center;
+  padding: 40px 20px;
 }
 
 .hero-bg {
   position: absolute;
   top: 0;
   right: 0;
-  width: 50%;
-  height: 100%;
+  width: 100%;
+  height: 60%;
   z-index: 0;
   object-fit: cover;
-  opacity: 1; 
- 
+  opacity: 0.5;
 }
 
 .hero-text, .hero-image {
   position: relative;
   z-index: 2;
+  width: 100%;
 }
 
 .hero-text {
-  flex: 1;
-  padding-right: 0px;
-  margin-bottom: 350px; /* baru */
+  padding-right: 0;
+  margin-bottom: 30px;
 }
-
 
 .hero-text h1 {
   font-family: 'Poppins', sans-serif;
-  font-size: 7.7rem;
+  font-size: 2.8rem;
   font-weight: 100;
-  margin-top: 50px;
+  margin-top: 20px;
   color: #3e2b4a;
-  line-height: 1; 
+  line-height: 1.2;
 }
 
 .hero-text h1 span {
   font-family: 'Poppins', sans-serif;
-  font-weight: 800; /* Poppins Black */
+  font-weight: 800;
   color: #ff4fa1;
 }
 
 .hero-text p {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.9rem;
+  font-size: 1.1rem;
   color: #4d4d4d;
   margin-bottom: 8px;
+  line-height: 1.5;
 }
 
 .hero-text p span {
@@ -202,9 +223,10 @@ header {
 }
 
 .cta-button {
-  margin-top: 20px;
+  margin-top: 25px;
   display: inline-block;
-  padding: 20px 30px;
+  padding: 12px 24px;
+  font-size: 0.9rem;
   border: 2px solid #c7659d;
   border-radius: 50px;
   color: #8a004f;
@@ -218,18 +240,13 @@ header {
   transition: 0.3s;
 }
 
-
 .hero-image {
-  margin-top: 30px;
-  max-width: 700px;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  max-width: 300px;
+  margin-bottom: 0;
 }
 
-.hero-image img {
-  width: 100%;
-  height: auto;
 
-}
 
 /* Hamburger Button Styles */
 .drawer-button {
@@ -282,129 +299,121 @@ header {
 
 
 
-/* ABOUT */
+/* ABOUT SECTION */
 .about-container {
   display: flex;
-  align-items: flex-start;
-  gap: 60px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+  padding: 40px 20px;
+}
 
-  width: 100%;
-  max-width: 2000px;
-  margin: 0 auto;
-  padding: 0 100px;
+.about-icon {
+  align-self: flex-start; /* geser posisi awal ke atas kontainer */
+  margin-top: 140px; /* kasih jarak dari atas */
 }
 
 
-
-.about-icon img {
-  width: 300px;
-  height: auto;
-  margin-top: 200px;
+.about-content {
+  max-width: 800px; /* biar paragraf tidak terlalu panjang */
 }
-
 
 .about-content h2 {
-  font-size: 3.5rem;
+  font-size: 2rem;
   color: #c54179;
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  margin-bottom: 30px;
-  text-align: center;
+  margin-bottom: 15px;
 }
 
 .about-content p {
-  font-size: 1.7rem;
+  font-size: 0.95rem;
   font-family: 'Poppins', sans-serif;
   color: #333;
-  line-height: 1.8;
-  margin-bottom: 18px;
+  line-height: 1.7;
+  margin-bottom: 20px;
   text-align: justify;
 }
 
 
-/* START FROM */
+/* START FROM SECTION */
 .start-from {
   background: linear-gradient(180deg, #fef6fb 0%, #fbd4e9 100%);
-  border-radius: 30px;
-  padding: 100px;
-  margin: 120px auto;
+  border-radius: 0;
+  padding: 50px 20px;
+  margin: 60px 0;
   text-align: center;
-  max-width: 1400px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .start-from h2 {
-  font-size: 3.5rem;
+  font-size: 2rem;
   font-family: 'Poppins', sans-serif;
   color: #3e2b4a;
-  margin-bottom: 70px;
+  margin-bottom: 30px;
   font-weight: 700;
 }
 
 .start-from-cards {
   display: flex;
-  justify-content: space-between;
-  gap: 60px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
 }
 
 .card {
   background: transparent;
-  padding: 30px;
-  border-radius: 30px;
-  flex: 1;
-  min-width: 300px;
-  max-width: 400px;
+  padding: 25px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 .icon-wrapper {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   background-color: #ff4fa1;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto 40px auto;
+  margin: 0 auto 20px auto;
 }
 
 .icon-wrapper img {
-  width: 40px;
-  height: 40px;
-  filter: brightness(0) invert(1); /* Biar putih */
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) invert(1);
 }
 
 .start-from .card h3 {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.5rem; /* Lebih besar dan tebal */
+  font-size: 1.1rem;
   font-weight: 700;
   color: #2B1F29;
-  margin-bottom: 20px;
-  line-height: 1.5;
+  margin-bottom: 10px;
+  line-height: 1.4;
 }
 
 .start-from .card p {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.35rem; /* Lebih kecil dari h3 */
-  font-weight: 10;
+  font-size: 0.9rem;
+  font-weight: normal;
   color: #4D4D4D;
-  line-height: 1.9;
+  line-height: 1.6;
   margin-top: 10px;
-  text-align: justify;
+  text-align: center;
 }
 
-
-.icon-wrapper.square {
-  border-radius: 16px;
-}
-
-.icon-wrapper.circle {
-  border-radius: 50%;
-}
-
+.icon-wrapper.square { border-radius: 12px; }
+.icon-wrapper.circle { border-radius: 50%; }
 .icon-wrapper.triangle {
   clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
   background-color: #ff4fa1;
-  width: 110px;
-  height: 80px;
+  width: 70px;
+  height: 60px;
   position: relative;
 }
 .icon-wrapper.triangle img {
@@ -414,43 +423,43 @@ header {
   transform: translate(-50%, -45%);
 }
 
-
-/* PERSONALIZATION */
+/* PERSONALIZATION SECTION */
 .personalization-section {
-  padding: 120px 100px;
+  padding: 50px 20px;
   text-align: center;
 }
 
 .personalization-section h2 {
   font-family: 'Poppins', sans-serif;
-  font-size: 4rem; /* Diperbesar dari 3rem */
+  font-size: 2rem;
   font-weight: 700;
   color: #8b2354;
-  margin-bottom: 60px;
-  letter-spacing: 1.5px;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
 }
 
 .personalization-form {
-  max-width: 1500px; /* Lebih lebar */
+  max-width: 500px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 25px;
 }
 
 .form-row {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
 }
 
 .personalization-form input {
-  padding: 18px 30px; /* Lebih besar */
-  font-size: 1.2rem; /* Lebih besar */
+  padding: 15px 20px;
+  font-size: 1rem;
   border: 2px solid #ff8fc3;
   border-radius: 10px;
-  width: 280px; /* Lebih lebar */
+  width: 100%;
   background-color: #fefefe;
   color: #333;
   font-family: 'Poppins', sans-serif;
@@ -459,32 +468,29 @@ header {
 .personalization-form input::placeholder {
   color: #caaac4;
   font-weight: 400;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
 }
 
 .personalization-form button {
-  padding: 24px;
+  padding: 18px 20px;
   width: 100%;
-  max-width: 1230px; /* Lebih ramping agar mudah disejajarkan */
+  max-width: 500px;
   background-color: #ff8fc3;
   border: none;
   border-radius: 12px;
   color: #2b1f29;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   font-weight: 800;
   font-family: 'Poppins', sans-serif;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin: 0 auto; /* Ini yang membuat tombol berada di tengah */
+  margin: 0 auto;
   display: block;
 }
-
 
 .personalization-form button:hover {
   background-color: #ff6dae;
 }
-
-
 
 
 /* LODIANG */
@@ -630,27 +636,51 @@ body {
 }
 
 
-@media screen and (width > 1000px) {
+/* MEDIA QUERY UNTUK DESKTOP (Layar > 1000px) */
+@media screen and (min-width: 1001px) {
+  .main-header.container {
+    padding-inline: 20px;
+  }
+
   .navigation-drawer {
-    min-height: auto;
+    height: auto;
     width: auto;
     padding: 0;
     background-color: transparent;
-
+    position: static;
+    transform: translateX(0);
+    box-shadow: none;
     flex-direction: row;
     justify-content: space-between;
+    overflow-y: visible;
+  }
 
-    position: static;
-    box-shadow: none;
-    transform: translateX(0);
+  .drawer-header {
+    display: none;
   }
 
   .nav-list {
     flex-direction: row;
+    align-items: center;
+    gap: 60px;
+    width: auto;
+  }
+
+  .nav-list li {
+    width: auto;
+    text-align: left;
   }
 
   .nav-list li a {
-    display: inline-block;
+    color: #2c2c2c;
+    font-size: 1.2rem;
+    padding: 5px 0;
+    font-weight: bold;
+  }
+  .nav-list li a:hover,
+  .nav-list li a:focus {
+    background-color: transparent;
+    color: #ff4fa1;
   }
 
   .drawer-button {
@@ -661,255 +691,167 @@ body {
     flex-direction: row;
     justify-content: space-between;
     text-align: left;
+    padding: 50px 100px 90px 100px;
+    align-items: center;
   }
-
   .hero-text {
     flex: 1;
-    padding-right: 20px;
+    padding-right: 40px;
+    margin-bottom: 0;
   }
-
+  .hero-text h1 {
+    font-size: 5rem;
+    margin-top: 0;
+  }
+  .hero-text p {
+    font-size: 1.3rem;
+  }
+  .hero-text p span {
+    display: block;
+  }
   .hero-image {
     flex: 1;
     margin-top: 0;
+    max-width: 600px;
     display: flex;
     justify-content: center;
   }
-}
-
-@media screen and (max-width: 1000px) {
-
-  .navigation-drawer {
-    display: block;
-  }
-
-  .navigation-drawer .nav-list {
-    flex-direction: column;
-    gap: 20px;
-    padding-top: 40px;
-  }
-
-  .navigation-drawer .nav-list li a {
-    font-size: 1.5rem;
-    color: #fff;
-  }
-
-
-  .drawer-button {
-    display: inline-block;
-  }
-
-  .hero {
-    flex-direction: column;
-    padding: 60px 20px;
-    text-align: center;
-  }
-
-  .hero-text {
-    margin-bottom: 40px;
-    padding-right: 0;
-  }
-
-  .hero-text h1 {
-    font-size: 3.5rem;
-  }
-
-  .hero-text p {
-    font-size: 1.3rem;
-  }
-
-  .hero-image {
-    margin-top: 20px;
-  }
-
-  .about-container {
-   flex-direction: column;
-    align-items: center;
-    padding: 50px 20px;
-    text-align: center;
-  }
-
-  .about-icon img {
-    margin-top: 0;
-    width: 100%;
-    max-width: 250px;
-    margin-inline: auto;
-  }
-
-  .about-content h2 {
-    font-size: 2.2rem;
-     text-align: center;
-  }
-
-  .about-content p {
-    font-size: 1.3rem;
-    text-align: justify;
-  }
-
-  .start-from {
-    padding: 50px 20px;
-  }
-
-  .start-from h2 {
-    font-size: 2.5rem;
-  }
-
-  .start-from-cards {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .personalization-section {
-    padding: 60px 20px;
-  }
-
-  .personalization-section h2 {
-    font-size: 2.5rem;
-  }
-
-  .form-row {
-    flex-direction: column;
-  }
-
-  .personalization-form input {
-    width: 100%;
-  }
-
-  .personalization-form button {
-    width: 100%;
+  .hero-image img {
     max-width: 100%;
   }
-
-  .result-section {
-    flex-direction: column;
-    padding: 60px 20px;
-  }
-
-  .result-grid {
-    flex-direction: column;
-  }
-
-  .recommendation-box {
-    height: auto;
-    padding: 20px;
-  }
-  
-}
-
-@media screen and (max-width: 600px) {
-  header {
-    padding: 10px;
-  }
-
-  .logo-fitzy {
-    width: 80px;
-    height: 80px;
-  }
-
-  .hero {
-    padding: 40px 16px;
-  }
-
-  .hero-text h1 {
-    font-size: 2.8rem;
-  }
-
-  .hero-text p {
-    font-size: 1.2rem;
-  }
-
-  .cta-button {
-    padding: 14px 20px;
-    font-size: 1rem;
+  .hero-bg {
+    width: 50%;
+    height: 100%;
+    opacity: 1;
   }
 
   .about-container {
-    padding: 0 16px;
-    gap: 24px;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    gap: 60px;
+    padding: 60px 100px;
+    max-width: 1200px;
+    margin: 60px auto;
   }
-
+  .about-icon img {
+    width: 250px;
+    margin-top: 20px;
+  }
   .about-content h2 {
-    font-size: 2rem;
+    font-size: 2.8rem;
+    text-align: left;
   }
-
   .about-content p {
     font-size: 1.1rem;
   }
 
-  .about-icon img {
-    width: 200px;
-    margin-top: 20px;
-  }
-
   .start-from {
-    padding: 40px 16px;
-    margin: 80px auto;
+    padding: 100px;
+    margin: 120px auto;
+    max-width: 1400px;
+    border-radius: 30px;
   }
-
   .start-from h2 {
-    font-size: 2rem;
+    font-size: 3rem;
   }
-
+  .start-from-cards {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  .card {
+    flex: 1;
+    min-width: 280px;
+    max-width: 380px;
+    padding: 30px;
+  }
   .start-from .card h3 {
     font-size: 1.3rem;
   }
-
   .start-from .card p {
-    font-size: 1.1rem;
-  }
-
-  .icon-wrapper {
-    width: 60px;
-    height: 60px;
-  }
-
-  .icon-wrapper img {
-    width: 28px;
-    height: 28px;
+    font-size: 1rem;
+    text-align: justify;
   }
 
   .personalization-section {
-    padding: 40px 16px;
+    padding: 100px;
   }
-
   .personalization-section h2 {
-    font-size: 2rem;
+    font-size: 3rem;
   }
-
+  .personalization-form {
+    max-width: 1250px;
+    gap: 30px;
+  }
+  .form-row {
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+  }
   .personalization-form input {
-    font-size: 1rem;
-    padding: 14px 20px;
+    width: 280px;
+    font-size: 1.1rem;
   }
-
+  .personalization-form input::placeholder {
+    font-size: 1rem;
+  }
   .personalization-form button {
-    font-size: 1.2rem;
-    padding: 16px;
+    max-width: 1230px;
+    font-size: 1.3rem;
   }
 
   .result-section {
-    padding: 40px 16px;
+    padding: 100px 60px;
   }
-
   .notebook-content h1 {
-    font-size: 1.8rem;
+    font-size: 32px;
   }
-
   .result-grid {
-    gap: 10px;
+    flex-direction: row;
   }
-
+  .personal-data h3, .recommendation h3 {
+    font-size: 16px;
+  }
   .personal-data li {
-    font-size: 0.9rem;
-    padding: 6px 8px;
+    font-size: 1rem;
   }
-
-  .recommendation-box {
-    height: auto;
-  }
-
   .category-box {
     font-size: 1rem;
-    padding: 8px;
   }
 }
 
+@media screen and (min-width: 601px) and (max-width: 1000px) {
+  .container {
+    padding-inline: 30px;
+  }
 
+  .hero { padding: 60px 40px; }
+  .hero-text h1 { font-size: 3.5rem; }
+  .hero-text p { font-size: 1.2rem; }
+
+  .about-container { padding: 40px; gap: 40px; }
+  .about-icon img { width: 180px; }
+  .about-content h2 { font-size: 2.2rem; }
+  .about-content p { font-size: 1rem; }
+
+  .start-from { padding: 80px 40px; }
+  .start-from h2 { font-size: 2.5rem; }
+  .start-from-cards { gap: 30px; }
+  .card { max-width: calc(50% - 15px); }
+
+
+  .personalization-section { padding: 80px 40px; }
+  .personalization-section h2 { font-size: 2.5rem; }
+  .personalization-form input { width: calc(50% - 15px); }
+  .form-row {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .personalization-form input {
+    width: 260px;
+  }
+
+  .result-section { padding: 60px 30px; }
+  .notebook-content h1 { font-size: 28px; }
+}
