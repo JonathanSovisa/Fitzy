@@ -1,6 +1,4 @@
 import HomePagePresenter from './home-page-presenter';
-import API from '../../data/api.js';
-
 
 export default class HomePage {
   async render() {
@@ -17,7 +15,7 @@ export default class HomePage {
         </div>
       </section>
 
-      <section class="main-about">
+     <section class="main-about">
         <div class="about-container">
           <div id="about" class="about-icon">
             <img src="./images/fitzy-logo.png" alt="Dumbbell Icon" />
@@ -57,65 +55,59 @@ export default class HomePage {
         </div>
     </section>
 
-<section id="personalization" class="personalization-section">
-  <h2>PERSONALIZATION</h2>
-  <form class="personalization-form" id="personalizationForm">
-    
-    <div class="form-row">
-      <div class="form-group">
-        <label for="name">Nama</label>
-        <input type="text" id="name" name="name" placeholder="Nama" />
-      </div>
+ <section id="personalization" class="personalization-section">
+        <h2>PERSONALIZATION</h2>
+        <form class="personalization-form" id="personalizationForm">
 
-      <div class="form-group">
-        <label for="age">Umur</label>
-        <input type="number" id="age" name="age" placeholder="Age" />
-      </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Nama</label>
+              <input type="text" id="name" name="name" placeholder="Nama" required/>
+            </div>
 
-      <div class="form-group">
-        <label for="weight">Berat Badan (kg)</label>
-        <input type="number" id="weight" name="weight" placeholder="Weight" />
-      </div>
+            <div class="form-group">
+              <label for="age">Umur</label>
+              <input type="number" id="age" name="age" placeholder="Age" required/>
+            </div>
 
-      <div class="form-group">
-        <label for="height">Tinggi Badan (cm)</label>
-        <input type="number" id="height" name="height" placeholder="Height" />
-      </div>
-    </div>
+            <div class="form-group">
+              <label for="weight">Berat Badan (kg)</label>
+              <input type="number" id="weight" name="weight" placeholder="Weight" required/>
+            </div>
 
-    <div class="form-row">
-      <div class="form-group">
-        <label for="sitUpCounts">Jumlah Sit Up</label>
-        <input type="number" id="sitUpCounts" name="sitUpCounts" placeholder="Sit Up Counts" />
-      </div>
+            <div class="form-group">
+              <label for="height">Tinggi Badan (cm)</label>
+              <input type="number" id="height" name="height" placeholder="Height" required/>
+            </div>
+          </div>
 
-      <div class="form-group">
-        <label for="broadJump">Jarak Broad Jump (cm)</label>
-        <input type="number" id="broadJump" name="broadJump" placeholder="Broad Jumps" />
-      </div>
-    </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="sitUpCounts">Jumlah Sit Up</label>
+              <input type="number" id="sitUpCounts" name="situps_count" placeholder="Sit Up Count" required min="1"/>
+            </div>
 
-    <button type="submit">Mulai Test</button>
-  </form>
-</section>
+            <div class="form-group">
+              <label for="broadJump">Jarak Broad Jump (cm)</label>
+              <input type="number" id="broadJump" name="broad_jump_cm" placeholder="Broad Jump (cm)" required min="1"/>
+            </div>
+          </div>
 
+          <button type="submit">Mulai Test</button>
+        </form>
+      </section>
 
-
- <!-- 👇 Ini bagian loading screen -->
-      <div id="loading-screen" style="display: none;" class="loading-screen">
-        <ul id="loading-steps">
-          <li id="step1">🔄 Memproses Data Diri Anda...</li>
-          <li id="step2">⏳ Mengklasifikasikan Kelas Anda...</li>
-          <li id="step3">⏳ Membuat Hasil Rekomendasi...</li>
-        </ul>
-      </div>
-
+<div id="loading-screen" style="display: none;" class="loading-screen">
+  <ul id="loading-steps">
+    <li id="step1">🔄 Memproses Data Diri Anda...</li>
+    <li id="step2">⏳ Mengklasifikasikan Kelas Anda...</li>
+    <li id="step3">⏳ Membuat Hasil Rekomendasi...</li>
+  </ul>
+</div>
     `;
   }
 
   async afterRender() {
-    HomePagePresenter.init();
-
-    
+    HomePagePresenter.init();    
   }
 }
