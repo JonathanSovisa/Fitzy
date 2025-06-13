@@ -11,55 +11,52 @@ const HomePagePresenter = {
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
 
+      // Ambil formData apa adanya
       const formData = new FormData(form);
       const payload = {
-        name: formData.get('name'),
+        name: formData.get('name').trim(),
         age: Number(formData.get('age')),
-        height: Number(formData.get('height')),
-        weight: Number(formData.get('weight')),
-        sitUpCounts: Number(formData.get('sitUpCounts')),
-        broadJump: Number(formData.get('broadJump')),
+        height_cm: Number(formData.get('height')),
+        weight_kg: Number(formData.get('weight')),
+        situps_count: Number(formData.get('situps_count')),
+        broad_jump_cm: Number(formData.get('broad_jump_cm')),
       };
 
-      // Tampilkan loading
+      console.log('Payload ke API:', payload);
+
       loadingScreen.style.display = 'flex';
 
       try {
-        // Step 1: Memproses jawaban
-        step1.classList.add('active');
-        await delay(1500);
-        step1.classList.remove('active');
-        step1.classList.add('done');
+        // Tampilkan animasi loading
+        await runLoadingSteps();
 
-        // Step 2: Mengklasifikasikan kelas
-        step2.classList.add('active');
-        await delay(1500);
-        step2.classList.remove('active');
-        step2.classList.add('done');
-
-        // Step 3: Membuat rekomendasi
-        step3.classList.add('active');
-        await delay(1500);
-        step3.classList.remove('active');
-        step3.classList.add('done');
-
-        // Fetch ke API
+        // Kirim ke API, biar API melakukan semua validasi
         const result = await API.predictFitness(payload);
+
+        // Jika sukses
         localStorage.setItem('fitzyResult', JSON.stringify(result));
         window.location.hash = '#/hasil';
-
       } catch (error) {
-        // Tangkap dan tampilkan pesan error dari API jika ada
-        console.error('Prediction error:', error);
-
-        // Jika error.message ada, tampilkan itu, kalau tidak tampilkan pesan umum
-       alert(`Gagal memproses prediksi. Coba lagi ya!\n${error.message}`);
-
+        // Tampilkan pesan error langsung dari API
+        alert(error.message);
+        console.error('Error saat submit:', error);
+      } finally {
         loadingScreen.style.display = 'none';
       }
     });
   },
 };
+
+async function runLoadingSteps() {
+  const steps = ['step1', 'step2', 'step3'];
+  for (const stepId of steps) {
+    const step = document.getElementById(stepId);
+    step.classList.add('active');
+    await delay(1000);
+    step.classList.remove('active');
+    step.classList.add('done');
+  }
+}
 
 function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
